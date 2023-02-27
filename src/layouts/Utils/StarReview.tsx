@@ -1,26 +1,28 @@
-export const StarReview: React.FC<{ raiting: number, size: number }> = (props) => {
+export const StarReview: React.FC<{ rating: number, size: number }> = (props) => {
 
-    let raiting = props.raiting;
+    let rating = props.rating;
 
     let fullStars = 0;
 
     let halfStar = 0;
 
-    let emptyStars = 0;
+    let emptyStars = 5;
 
-    if(raiting !== undefined && raiting > 0 && raiting <=5){
+    if(rating !== undefined && rating > 0 && rating <=5){
         for(let i = 0; i <= 4; i++){
-            if(raiting -1 >= 0){
+            if(rating -1 >= 0){
                 fullStars = fullStars +1;
-                raiting = raiting -1;
+                rating = rating -1;
+                emptyStars = emptyStars -1;
             }
-            else if(raiting === .5){
+            else if(rating === .5){
                 halfStar = halfStar + 1;
-                raiting = raiting - .5;
+                rating = rating - .5;
+                emptyStars = emptyStars - 1;
             }
-            else if(raiting == 0){
-                emptyStars = emptyStars + 1; 
-            }
+            // else if(rating == 0){
+            //     emptyStars = emptyStars + 1; 
+            // }
             else{
                 break;
             }
